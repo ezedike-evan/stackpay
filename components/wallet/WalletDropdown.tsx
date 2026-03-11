@@ -12,7 +12,7 @@ function truncate(addr: string) {
 }
 
 export function WalletChip() {
-  const { address, stxBalance, sbtcBalance, disconnect } = useWalletContext();
+  const { address, stxBalance, sbtcBalance } = useWalletContext();
   const { triggerDisconnect, disconnectPhase } = usePageTransition();
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);

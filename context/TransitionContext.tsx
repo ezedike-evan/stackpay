@@ -43,26 +43,33 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const triggerConnect = useCallback(() => {
-    setWasConnectTransition(true);
-    setActiveTransition('connect');
-    // Navigate immediately — dashboard loads in background during Phase 1
+  setWasConnectTransition(true);
+  setActiveTransition('connect');
+  // Set cookie FIRST, then navigate after animation has breathing room
+  document.cookie = 'stackpay_connected=1; path=/; max-age=86400';
+  setTimeout(() => {
     router.push('/dashboard');
-  }, [router]);
+  }, 2000); // Let animation reach Phase 3 before navigating
+}, [router]);
+
+const triggerDisconnect = useCallback(() => {
+  setActiveTransition('disconnect');
+  setDisconnectPhase(1);
+  const timers = [
+    setTimeout(() => setDisconnectPhase(2), 600),
+    setTimeout(() => {
+      // Clear cookie THEN navigate — during the void phase
+      document.cookie = 'stackpay_connected=; path=/; max-age=0';
+      router.push('/');
+    }, 1900), // Matches your void phase timing exactly
+  ];
+  disconnectTimersRef.current = timers;
+}, [router]);
 
   const triggerBoot = useCallback(() => {
     if (bootPlayedRef.current) return;
     bootPlayedRef.current = true;
     setActiveTransition('boot');
-  }, []);
-
-  const triggerDisconnect = useCallback(() => {
-    setActiveTransition('disconnect');
-    setDisconnectPhase(1);
-    router.push('/'); // Navigate immediately — homepage loads in background during Phase 1
-    const timers = [
-      setTimeout(() => setDisconnectPhase(2), 600),  // chip fades out
-    ];
-    disconnectTimersRef.current = timers;
   }, []);
 
   const completeTransition = useCallback(() => {

@@ -119,7 +119,11 @@ export function WalletModal() {
 
   useEffect(() => {
     if (isModalOpen) {
-      const w = window as any;
+      const w = window as Window & {
+        HiroWalletProvider?: unknown;
+        LeatherProvider?: unknown;
+        XverseProviders?: unknown;
+      };
       const hasLeather = !!w.LeatherProvider;
       setDetected({
         hiro: !!w.HiroWalletProvider && !hasLeather,

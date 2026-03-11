@@ -1,7 +1,5 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import Sidebar from '@/components/layout/Sidebar';
 import SendScreen from '@/components/screens/SendScreen';
 
 export default function SendPage() {

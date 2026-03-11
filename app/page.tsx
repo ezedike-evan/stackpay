@@ -9,7 +9,7 @@ import { usePageTransition } from '@/context/TransitionContext';
 function LandingContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { activeTransition, ctaPulse, setCTPulse } = usePageTransition();
+  const { activeTransition, setCTPulse } = usePageTransition();
   const [showAmberFlash, setShowAmberFlash] = useState(false);
   const [shake, setShake] = useState(false);
 

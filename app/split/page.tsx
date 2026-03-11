@@ -1,7 +1,5 @@
 "use client";
-
 import { motion } from "framer-motion";
-import Sidebar from "@/components/layout/Sidebar";
 import SplitScreen from "@/components/screens/SplitScreen";
 
 export default function SplitPage() {

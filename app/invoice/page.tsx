@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Sidebar from "@/components/layout/Sidebar";
 import InvoiceScreen from "@/components/screens/InvoiceScreen";
 
 export default function InvoicePage() {

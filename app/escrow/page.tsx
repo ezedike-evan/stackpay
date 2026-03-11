@@ -1,7 +1,5 @@
 "use client";
-
 import { motion } from "framer-motion";
-import Sidebar from "@/components/layout/Sidebar";
 import EscrowScreen from "@/components/screens/EscrowScreen";
 
 export default function EscrowPage() {

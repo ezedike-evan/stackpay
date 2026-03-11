@@ -1,7 +1,5 @@
 "use client";
-
 import { motion } from "framer-motion";
-import Sidebar from "@/components/layout/Sidebar";
 import YieldScreen from "@/components/screens/YieldScreen";
 
 export default function YieldPage() {

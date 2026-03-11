@@ -1,7 +1,5 @@
 'use client';
-
 import { motion } from 'framer-motion';
-import Sidebar from '@/components/layout/Sidebar';
 import StreamScreen from '@/components/screens/StreamScreen';
 
 export default function StreamPage() {
