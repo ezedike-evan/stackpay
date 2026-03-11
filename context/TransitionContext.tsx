@@ -58,11 +58,9 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   const triggerDisconnect = useCallback(() => {
     setActiveTransition('disconnect');
     setDisconnectPhase(1);
+    router.push('/'); // Navigate immediately — homepage loads in background during Phase 1
     const timers = [
-      setTimeout(() => setDisconnectPhase(2), 150),
-      setTimeout(() => setDisconnectPhase(3), 400),
-      setTimeout(() => setDisconnectPhase(4), 650),
-      setTimeout(() => setDisconnectPhase(5), 800),
+      setTimeout(() => setDisconnectPhase(2), 600),  // chip fades out
     ];
     disconnectTimersRef.current = timers;
   }, []);

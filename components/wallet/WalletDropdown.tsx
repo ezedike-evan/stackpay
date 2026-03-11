@@ -41,8 +41,8 @@ export function WalletChip() {
     <motion.div
       ref={ref}
       style={{ position: 'relative' }}
-      animate={disconnectPhase >= 1 ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
-      transition={{ duration: 0.15, ease: 'easeIn' }}
+      animate={disconnectPhase >= 2 ? { scale: 0.96, opacity: 0 } : { scale: 1, opacity: 1 }}
+      transition={{ duration: 0.3, ease: 'easeIn' }}
     >
       {/* chip button */}
       <motion.button
@@ -58,30 +58,43 @@ export function WalletChip() {
           cursor: 'pointer',
           color: 'var(--text-primary)',
         }}
-        whileHover={{
-          background: 'rgba(241,90,34,0.08)',
-          borderColor: 'rgba(241,90,34,0.3)',
-        }}
-        transition={{ duration: 0.15 }}
+        animate={
+          disconnectPhase === 1
+            ? {
+                borderColor: 'rgba(245,158,11,0.8)',
+                boxShadow: [
+                  '0 0 0 0 rgba(245,158,11,0)',
+                  '0 0 0 8px rgba(245,158,11,0.8)',
+                  '0 0 0 0 rgba(245,158,11,0)',
+                  '0 0 0 8px rgba(245,158,11,0.8)',
+                  '0 0 0 0 rgba(245,158,11,0)',
+                  '0 0 0 8px rgba(245,158,11,0.8)',
+                  '0 0 0 0 rgba(245,158,11,0)',
+                ],
+              }
+            : {}
+        }
+        transition={
+          disconnectPhase === 1
+            ? { duration: 0.6, times: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 1] }
+            : { duration: 0.15 }
+        }
+        whileHover={
+          disconnectPhase === 0
+            ? { background: 'rgba(241,90,34,0.08)', borderColor: 'rgba(241,90,34,0.3)' }
+            : {}
+        }
       >
-        {/* green connected dot — pulses red when disconnect starts */}
+        {/* green connected dot */}
         <motion.div
           style={{
             width: 7,
             height: 7,
             borderRadius: '50%',
-            background: disconnectPhase === 1 ? '#ef4444' : 'var(--green)',
+            background: 'var(--green)',
           }}
-          animate={
-            disconnectPhase === 1
-              ? { scale: [1, 1.8, 0], opacity: [1, 1, 0] }
-              : { opacity: [1, 0.4, 1] }
-          }
-          transition={
-            disconnectPhase === 1
-              ? { duration: 0.15, ease: 'easeIn', times: [0, 0.5, 1] }
-              : { duration: 2, repeat: Infinity }
-          }
+          animate={{ opacity: [1, 0.4, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
         />
 
         <span

@@ -14,10 +14,7 @@ export default function SendPage() {
       exit={{ opacity: 0, scale: 1.15, filter: 'blur(8px)' }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Sidebar />
-      <main className="flex-1 overflow-hidden flex" style={{ background: 'var(--bg-base)' }}>
-        <SendScreen />
-      </main>
+      <SendScreen />
     </motion.div>
   );
 }

@@ -5,6 +5,8 @@ import { WalletProvider } from '@/context/WalletContext';
 import { WalletModal } from '@/components/wallet/WalletModal';
 import { TransitionProvider } from '@/context/TransitionContext';
 import { DashboardTransition } from '@/components/animations/DashboardTransition';
+import { ConnectTransition } from '@/components/animations/ConnectTransition';
+import { DisconnectTransition } from '@/components/animations/DisconnectTransition';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +14,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <WalletProvider>
         <WalletModal />
         <DashboardTransition />
+        <ConnectTransition />
+        <DisconnectTransition />
         <AnimatePresence mode="wait">{children}</AnimatePresence>
       </WalletProvider>
     </TransitionProvider>
