@@ -16,14 +16,14 @@ export default function EscrowScreen() {
   const allDone = completed === mockEscrow.milestones.length;
 
   return (
-    <div className="flex-1 p-6 overflow-y-auto">
+    <div className="flex-1 p-4 md:p-6 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1
-          className="text-2xl font-bold mb-1"
+          className="font-bold mb-1 text-section"
           style={{ fontFamily: 'var(--font-syne)', color: 'var(--text-primary)' }}
         >
           Escrow
@@ -35,7 +35,9 @@ export default function EscrowScreen() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left: Vault */}
           <div className="flex flex-col items-center gap-6">
-            <VaultDoor isOpen={isOpen} onToggle={() => setIsOpen((v) => !v)} />
+            <div className="anim-scale">
+              <VaultDoor isOpen={isOpen} onToggle={() => setIsOpen((v) => !v)} />
+            </div>
             <p className="text-xs text-center" style={{ color: 'var(--text-secondary)' }}>
               Click the vault to {isOpen ? 'lock' : 'unlock'}
             </p>

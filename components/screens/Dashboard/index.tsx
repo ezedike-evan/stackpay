@@ -205,7 +205,7 @@ export default function DashboardScreen() {
   const usdValue = sbtcVal * 100_000; // rough sBTC→USD (testnet mock rate)
 
   return (
-    <CircuitBoard>
+    <>
       {/* Grayscale wrapper — kicks in at disconnect phase 1 */}
       <motion.div
         style={{ width: "100%", height: "100%", overflow: "hidden" }}
@@ -217,7 +217,7 @@ export default function DashboardScreen() {
         transition={{ duration: 0.5, ease: "easeIn" }}
       >
         <motion.div
-          className="flex-1 p-6 overflow-y-auto"
+          className="flex-1 p-4 md:p-6 overflow-y-auto"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -225,14 +225,15 @@ export default function DashboardScreen() {
           {/* Header */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-between mb-6"
+            className="flex items-center justify-between mb-4 md:mb-6"
           >
             <div>
               <h1
-                className="text-2xl font-bold"
+                className="font-bold"
                 style={{
                   fontFamily: "var(--font-syne)",
                   color: "var(--text-primary)",
+                  fontSize: "var(--text-section)",
                 }}
               >
                 Dashboard
@@ -262,28 +263,30 @@ export default function DashboardScreen() {
             <motion.div variants={itemVariants} className="lg:col-span-2">
               <Card className="flex flex-col items-center py-6 gap-2">
                 <CardTitle className="mb-2">sBTC Balance</CardTitle>
-                {sbtcBalance === null ? (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: 12,
-                      padding: "20px 0",
-                    }}
-                  >
-                    <BalanceSkeleton width="80px" />
-                    <BalanceSkeleton width="60px" />
-                  </div>
-                ) : (
-                  <LiquidFill
-                    fillPercent={fillPct}
-                    value={sbtcVal}
-                    label="sBTC"
-                    width={180}
-                    height={180}
-                  />
-                )}
+                <div className="anim-scale">
+                  {sbtcBalance === null ? (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: 12,
+                        padding: "20px 0",
+                      }}
+                    >
+                      <BalanceSkeleton width="80px" />
+                      <BalanceSkeleton width="60px" />
+                    </div>
+                  ) : (
+                    <LiquidFill
+                      fillPercent={fillPct}
+                      value={sbtcVal}
+                      label="sBTC"
+                      width={180}
+                      height={180}
+                    />
+                  )}
+                </div>
                 <div
                   className="mt-2 text-xs font-mono"
                   style={{ color: "var(--text-secondary)" }}
@@ -300,7 +303,7 @@ export default function DashboardScreen() {
             {/* Mini stat cards */}
             <motion.div
               variants={itemVariants}
-              className="lg:col-span-3 grid grid-cols-2 gap-3"
+              className="lg:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-3"
             >
               {[
                 {
@@ -548,6 +551,6 @@ export default function DashboardScreen() {
           </motion.div>
         </motion.div>
       </motion.div>
-    </CircuitBoard>
+    </>
   );
 }

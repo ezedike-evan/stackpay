@@ -85,7 +85,7 @@ function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-16 mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 md:px-6 pt-24 pb-16 mx-auto w-full max-w-5xl">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ function HeroSection() {
 
         {/* Headline */}
         <h1
-          className="text-[52px] md:text-[96px] font-black leading-none mb-6 tracking-tight"
+          className="font-black leading-none mb-6 tracking-tight text-hero"
           style={{ fontFamily: 'var(--font-syne)' }}
         >
           <div>
@@ -217,7 +217,7 @@ function ProblemSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} className="py-24 px-6 md:px-20">
+    <section ref={ref} className="py-16 md:py-24 px-4 md:px-20">
       <div className="max-w-6xl mx-auto">
         <motion.p
           className="text-xs uppercase tracking-widest mb-4 font-mono"
@@ -229,7 +229,7 @@ function ProblemSection() {
           Why This Exists
         </motion.p>
         <motion.h2
-          className="text-4xl md:text-[48px] font-bold max-w-3xl mb-14 leading-tight"
+          className="text-title font-bold max-w-3xl mb-10 md:mb-14 leading-tight"
           style={{ fontFamily: 'var(--font-syne)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -298,7 +298,7 @@ function SolutionSection() {
   return (
     <section
       ref={ref}
-      className="relative py-24 px-6 md:px-20 overflow-hidden"
+      className="relative py-16 md:py-24 px-4 md:px-20 overflow-hidden"
       style={{ borderLeft: '4px solid var(--accent)' }}
     >
       {/* Animated radial gradient bg */}
@@ -323,7 +323,7 @@ function SolutionSection() {
           Introducing StackPay
         </motion.p>
         <motion.h2
-          className="text-4xl md:text-[48px] font-bold mb-8 leading-tight"
+          className="text-title font-bold mb-8 leading-tight"
           style={{ fontFamily: 'var(--font-syne)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -397,7 +397,7 @@ function HowItWorksSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6 md:px-20 border-t"
+      className="py-16 md:py-24 px-4 md:px-20 border-t"
       style={{ borderColor: 'var(--bg-border)' }}
     >
       <div className="max-w-4xl mx-auto">
@@ -412,7 +412,7 @@ function HowItWorksSection() {
           Three Steps
         </motion.p>
         <motion.h2
-          className="text-3xl md:text-[40px] font-bold text-center mb-16 leading-tight"
+          className="text-title font-bold text-center mb-16 leading-tight"
           style={{ fontFamily: 'var(--font-syne)' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -440,8 +440,7 @@ function HowItWorksSection() {
               return (
                 <motion.div
                   key={step.num}
-                  className="flex flex-col md:flex-row items-start gap-6 z-10"
-                  style={{ flexDirection: isEven ? 'row-reverse' : undefined } as React.CSSProperties}
+                  className={`flex items-start gap-6 z-10 flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}
                   initial={{ opacity: 0, x: isEven ? 60 : -60 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
@@ -550,7 +549,7 @@ function FeatureCardsSection() {
   return (
     <section
       ref={ref}
-      className="py-24 px-6 md:px-20 border-t"
+      className="py-16 md:py-24 px-4 md:px-20 border-t"
       style={{ borderColor: 'var(--bg-border)' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -564,7 +563,7 @@ function FeatureCardsSection() {
           What You Can Do
         </motion.p>
         <motion.h2
-          className="text-3xl md:text-[40px] font-bold mb-14 leading-tight"
+          className="text-title font-bold mb-14 leading-tight"
           style={{ fontFamily: 'var(--font-syne)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -662,7 +661,7 @@ function WhoItsForSection() {
   return (
     <section
       ref={ref}
-      className="py-24 px-6 md:px-20 border-t"
+      className="py-16 md:py-24 px-4 md:px-20 border-t"
       style={{ borderColor: 'var(--bg-border)' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -676,7 +675,7 @@ function WhoItsForSection() {
           Built For You
         </motion.p>
         <motion.h2
-          className="text-3xl md:text-[40px] font-bold mb-14 leading-tight"
+          className="text-title font-bold mb-14 leading-tight"
           style={{ fontFamily: 'var(--font-syne)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -735,7 +734,7 @@ function WhoItsForSection() {
 function FinalCTASection() {
   return (
     <section
-      className="relative py-32 px-6 md:px-20 min-h-[50vh] flex flex-col items-center justify-center text-center border-t overflow-hidden"
+      className="relative py-20 md:py-32 px-4 md:px-20 min-h-[50vh] flex flex-col items-center justify-center text-center border-t overflow-hidden"
       style={{ borderColor: 'var(--bg-border)' }}
     >
       {/* Pulsing orange radial gradient */}
@@ -751,7 +750,7 @@ function FinalCTASection() {
 
       <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center gap-6">
         <motion.h2
-          className="text-[48px] md:text-[64px] font-black leading-tight"
+          className="text-title font-black leading-tight"
           style={{ fontFamily: 'var(--font-syne)' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -850,7 +849,7 @@ function FinalCTASection() {
 export default function LandingScreen() {
   return (
     <main
-      className="min-h-screen overflow-x-hidden"
+      className="min-h-screen overflow-x-hidden touch-pan-y"
       style={{ background: 'var(--bg-base)', color: 'var(--text-primary)' }}
     >
       <ScrollProgressBar />

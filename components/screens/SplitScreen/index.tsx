@@ -14,14 +14,14 @@ export default function SplitScreen() {
   const [sent, setSent] = useState(false);
 
   return (
-    <div className="flex-1 p-6 overflow-y-auto">
+    <div className="flex-1 p-4 md:p-6 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1
-          className="text-2xl font-bold mb-1"
+          className="font-bold mb-1 text-section"
           style={{ fontFamily: 'var(--font-syne)', color: 'var(--text-primary)' }}
         >
           Split Payment

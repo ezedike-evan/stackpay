@@ -68,7 +68,7 @@ export default function SendScreen() {
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1
-          className="text-2xl font-bold mb-1"
+          className="font-bold mb-1 text-section"
           style={{ fontFamily: 'var(--font-syne)', color: 'var(--text-primary)' }}
         >
           Send Payment

@@ -1,5 +1,6 @@
-import Sidebar from '@/components/layout/Sidebar';
-import DashboardNav from '@/components/layout/DashboardNav';
+import Sidebar from "@/components/layout/Sidebar";
+import DashboardNav from "@/components/layout/DashboardNav";
+import MobileOrb from "@/components/layout/MobileOrb";
 
 export default function YieldLayout({
   children,
@@ -11,11 +12,12 @@ export default function YieldLayout({
       <Sidebar />
       <div
         className="flex flex-col flex-1 overflow-hidden"
-        style={{ background: 'var(--bg-base)' }}
+        style={{ background: "var(--bg-base)" }}
       >
         <DashboardNav />
         <main className="flex-1 overflow-hidden">{children}</main>
       </div>
+      <MobileOrb />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Sidebar from '@/components/layout/Sidebar';
 import DashboardNav from '@/components/layout/DashboardNav';
+import MobileOrb from '@/components/layout/MobileOrb';
 
 export default function InvoiceLayout({
   children,
@@ -16,6 +17,7 @@ export default function InvoiceLayout({
         <DashboardNav />
         <main className="flex-1 overflow-hidden">{children}</main>
       </div>
+      <MobileOrb />
     </div>
   );
 }

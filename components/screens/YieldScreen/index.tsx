@@ -14,14 +14,14 @@ export default function YieldScreen() {
   const yieldPct = (mockYield.earned / mockYield.deposited) * 100;
 
   return (
-    <div className="flex-1 p-6 overflow-y-auto">
+    <div className="flex-1 p-4 md:p-6 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1
-          className="text-2xl font-bold mb-1"
+          className="font-bold mb-1 text-section"
           style={{ fontFamily: 'var(--font-syne)', color: 'var(--text-primary)' }}
         >
           Yield
@@ -33,7 +33,9 @@ export default function YieldScreen() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Tree animation */}
           <div className="flex flex-col items-center gap-6">
-            <GrowingTree yieldPercent={yieldPct * 10} />
+            <div className="anim-scale">
+              <GrowingTree yieldPercent={yieldPct * 10} />
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 w-full">

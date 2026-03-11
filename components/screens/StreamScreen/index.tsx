@@ -30,15 +30,15 @@ export default function StreamScreen() {
   };
 
   return (
-    <div className="flex-1 p-6 overflow-y-auto">
+    <div className="flex-1 p-4 md:p-6 overflow-y-auto">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1
-          className="text-2xl font-bold mb-1"
-          style={{ fontFamily: 'var(--font-syne)', color: 'var(--text-primary)' }}
+          className="font-bold mb-1"
+          style={{ fontFamily: 'var(--font-syne)', color: 'var(--text-primary)', fontSize: 'var(--text-section)' }}
         >
           Stream Payments
         </h1>
@@ -49,11 +49,13 @@ export default function StreamScreen() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left: Animation + controls */}
           <div className="flex flex-col items-center gap-6">
-            <LiquidDrip
-              isStreaming={isStreaming}
-              senderLabel="YOU"
-              recipientLabel={recipient.slice(0, 8) + '...'}
-            />
+            <div className="anim-scale">
+              <LiquidDrip
+                isStreaming={isStreaming}
+                senderLabel="YOU"
+                recipientLabel={recipient.slice(0, 8) + '...'}
+              />
+            </div>
 
             {/* Controls */}
             <div className="flex gap-3">

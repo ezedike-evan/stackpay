@@ -32,7 +32,7 @@ export default function Sidebar() {
 
   return (
     <motion.aside
-      className="relative flex flex-col h-screen border-r"
+      className="relative flex-col h-screen border-r flex-shrink-0 hidden md:flex"
       style={{
         background: 'var(--bg-surface)',
         borderColor: 'var(--bg-border)',
